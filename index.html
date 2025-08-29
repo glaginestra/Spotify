@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Animación al hacer scroll</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <header>
+      <div class="imagen-spotify"></div>
+      <button class="home"></button>
+      <div class="input-contenedor">
+        <i class="imagen-lupa"></i>
+        <input
+          type="text"
+          placeholder="¿Qué quieres reproducir?"
+          class="buscador"
+        />
+        <hr class="linea-vertical" />
+        <i class="imagen-derecha"></i>
+      </div>
+      <ul>
+        <li>Premium</li>
+        <li>Ayuda</li>
+        <li>Descargar</li>
+      </ul>
+      <hr class="linea-vertical" />
+      <div class="app">
+        <div class="instalar">
+          <i></i>
+          <p>Instalar aplicaión</p>
+        </div>
+        <p id="pregister">Regístrate</p>
+      </div>
+      <button class="iniciar-sesion">Iniciar sesión</button>
+    </header>
+
+    <div class="contenedor">
+      <section id="tu-biblioteca">
+        <div class="biblio-header">
+          <div class="library-contenedor">
+            <div class="imagen-library"></div>
+            <h3>Tu biblioteca</h3>
+          </div>
+          <button class="imagen-mas"></button>
+        </div>
+        <div class="playlist">
+          <div>
+            <h3>Crea tu primera playlist</h3>
+            <p>¡Es muy fácil! Te vamos a ayudar</p>
+            <button id="crear-playlist">Crear playlist</button>
+          </div>
+          <div>
+            <h3>Busquemos algunos podcasts para seguir</h3>
+            <p>Te mantendremos al tanto de los nuevos episodios.</p>
+            <button id="explorar-podcasts">Explorar podcasts</button>
+          </div>
+        </div>
+        <iframe
+          id="spotifyPlayer"
+          style="
+            display: none;
+            width: 100%;
+            margin-bottom: -45px;
+            height: 400px;
+          "
+          frameborder="0"
+          allowtransparency="true"
+          allow="encrypted-media"
+        ></iframe>
+        <div class="legal">
+          <ul>
+            <li>Legal</li>
+            <li>Seguridad y Centro de Privacidad</li>
+            <li>Política de Privacidad</li>
+            <li>Cookies</li>
+            <li>Sobre los anuncios</li>
+            <li id="access">Accesibilidad</li>
+          </ul>
+          <p class="cookies">Cookies</p>
+          <button class="latinoamerica">Español de Latinoamérica</button>
+        </div>
+      </section>
+      <section id="popular">
+        <div class="populares">
+          <h2>Artistas populares</h2>
+          <div class="organizar" id="playlistsContainer">
+            <!-- Cada contenedor es un artista, y cada botón de play estará asociado con una canción -->
+            <div class="contenedorp artista-1">
+              <div class="portada"></div>
+              <h3>Bad Bunny</h3>
+              <p>Artista</p>
+              <button
+                class="play Playlist"
+                data-uri="spotify:playlist:3AmmNFveFmYHYE6Lrrp5GN"
+              ></button>
+            </div>
+            <div class="contenedorp artista-2">
+              <div class="portada"></div>
+              <h3>La T y La M</h3>
+              <p>Artista</p>
+              <button
+                class="play Playlist"
+                data-uri="spotify:playlist:37i9dQZF1DZ06evO0VPgnT"
+              ></button>
+            </div>
+            <div class="contenedorp artista-3">
+              <div class="portada"></div>
+              <button
+                class="play Playlist"
+                data-uri="spotify:playlist:37i9dQZF1DZ06evO2wU5Vu"
+              ></button>
+              <h3>Luck Ra</h3>
+              <p>Artista</p>
+            </div>
+            <div class="contenedorp artista-4">
+              <div></div>
+              <button
+                class="play Playlist"
+                data-uri="spotify:playlist:37i9dQZF1DX7auwRw98d8w"
+              ></button>
+              <h3>Bizarrap</h3>
+              <p>Artista</p>
+            </div>
+            <div class="contenedorp artista-5">
+              <div></div>
+              <button
+                class="play Playlist"
+                data-uri="spotify:playlist:37i9dQZF1DZ06evO3wc4Mh"
+              ></button>
+              <h3>Tiago PZK</h3>
+              <p>Artista</p>
+            </div>
+            <div class="contenedorp artista-6">
+              <div></div>
+              <button
+                class="play Playlist"
+                data-uri="spotify:playlist:37i9dQZF1DZ06evO4e5iLu"
+              ></button>
+              <h3>KAROL G</h3>
+              <p>Artista</p>
+            </div>
+          </div>
+        </div>
+        <div class="populares">
+          <h2>Álbumes y sencillos populares</h2>
+          <h4><span>Mostrar todo</span></h4>
+          <div class="organizar">
+            <div class="contenedorp album-1">
+              <div></div>
+              <button
+                class="play Playlist"
+                data-uri="spotify:playlist:7tUrFDwT6bcrLhXJ6lkNue"
+              ></button>
+              <h3>DeBÍ TiRAR MáS FOToS</h3>
+              <p>Bad Bunny</p>
+            </div>
+            <div class="contenedorp album-2">
+              <div></div>
+              <button
+                class="play Playlist"
+                data-uri="spotify:playlist:6dpZikwPzTnp6o08EzromJ"
+              ></button>
+              <h3>URIEL LOZANO / Zapada EN VIVO</h3>
+              <p>Pinky SD, Un Poco de Ruido, Uriel Lozano</p>
+            </div>
+            <div class="contenedorp album-3">
+              <div></div>
+              <button
+                class="play Playlist"
+                data-uri="spotify:playlist:2t62EYDTQWfXRaKkok2vQB"
+              ></button>
+              <h3>Q'LOKURA / Zapada EN VIVO</h3>
+              <p>Pinky SD, Un Poco de Ruido, Q'Lokura</p>
+            </div>
+            <div class="contenedorp album-4">
+              <div></div>
+              <button
+                class="play Playlist"
+                data-uri="spotify:playlist:3lhgf7Z0AUwmkoFGxCXkw4"
+              ></button>
+              <h3>Un Verano Sin Ti</h3>
+              <p>Bad Bunny</p>
+            </div>
+            <div class="contenedorp album-5">
+              <div></div>
+              <button
+                class="play Playlist"
+                data-uri="spotify:track:5lXKHJ3kYg9aM0TdBgaZBe"
+              ></button>
+              <h3>AMERI</h3>
+              <p>Duki</p>
+            </div>
+            <div class="contenedorp album-6">
+              <div></div>
+              <button
+                class="play Playlist"
+                data-uri="spotify:playlist024GM9XvyW9maE44yPHOzC"
+              ></button>
+              <h3>QUE NOS FALTE TODO</h3>
+              <p>Luck Ra</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="populares">
+          <h2>Estaciones populares</h2>
+          <h4><span>Mostrar todo</span></h4>
+          <div class="organizar">
+            <div class="contenedorp estacion-1">
+              <div></div>
+              <button
+                class="play Playlist"
+                data-uri="spotify:playlist:37i9dQZF1E4wxAHFnNtXcu"
+              ></button>
+              <p>Con Las Pelotas, Ciro y los Persas</p>
+            </div>
+            <div class="contenedorp estacion-2">
+              <div></div>
+              <button
+                class="play Playlist"
+                data-uri="spotify:playlist:37i9dQZF1E4D4n9nAa90t6"
+              ></button>
+              <p>Con Rodrigo, Luck Ra, Matías Valdez y más</p>
+            </div>
+            <div class="contenedorp estacion-3">
+              <div></div>
+              <button
+                class="play Playlist"
+                data-uri="spotify:playlist:37i9dQZF1E4CWDuYF7GiUo"
+              ></button>
+              <p>Con Maria Becerra, Big One, Duki y más</p>
+            </div>
+            <div class="contenedorp estacion-4">
+              <div></div>
+              <button
+                class="play Playlist"
+                data-uri="spotify:playlist:37i9dQZF1E4A4OhpsgY5oU"
+              ></button>
+              <p>Con Feid, Arcángel, KAROL G y más</p>
+            </div>
+            <div class="contenedorp estacion-5">
+              <div></div>
+              <button
+                class="play Playlist"
+                data-uri="spotify:playlist:37i9dQZF1E4EkPqdHKVG0y"
+              ></button>
+              <p>Con Patricio Rey y sus Redonditos de Ricota</p>
+            </div>
+            <div class="contenedorp estacion-6">
+              <div></div>
+              <button
+                class="play Playlist"
+                data-uri="spotify:playlist:37i9dQZF1E4lSEj2tvo7MY"
+              ></button>
+              <p>Con Pinky SD, Omega, Los Cadiz y más</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="populares">
+          <h2>Listas Destacadas</h2>
+          <h4><span>Mostrar todo</span></h4>
+          <div class="organizar">
+            <div class="contenedorl lista-1">
+              <div></div>
+              <button
+                class="play Playlist"
+                data-uri="spotify:playlist:37i9dQZEVXbNG2KDcFcKOF"
+              ></button>
+              <p>
+                Tu actualización semanal<br />de las canciones más escuchadas
+                ahora mismo en Global.
+              </p>
+            </div>
+            <div class="contenedorl lista-2">
+              <div></div>
+              <button
+                class="play Playlist"
+                data-uri="spotify:playlist:37i9dQZEVXbKPTKrnFPD0G"
+              ></button>
+              <p>
+                Tu actualización semanal<br />de las canciones más escuchadas
+                ahora mismo en Argentina.
+              </p>
+            </div>
+            <div class="contenedorl lista-3">
+              <div></div>
+              <button
+                class="play Playlist"
+                data-uri="spotify:playlist:37i9dQZEVXbMDoHDwVN2tF"
+              ></button>
+              <p>
+                Tu actualización diaria de<br />las canciones más escuchadas
+                ahora mismo en Global.
+              </p>
+            </div>
+            <div class="contenedorl lista-4">
+              <div></div>
+              <button
+                class="play Playlist"
+                data-uri="spotify:playlist:37i9dQZEVXbMMy2roB9myp"
+              ></button>
+              <p>
+                Tu actualización diaria de<br />las canciones más escuchadas
+                ahora mismo en Argentina.
+              </p>
+            </div>
+            <div class="contenedorl lista-5">
+              <div></div>
+              <button
+                class="play Playlist"
+                data-uri="spotify:playlist:37i9dQZEVXbLiRSasKsNU9"
+              ></button>
+              <p>
+                Tu actualización diaria de<br />las canciones más virales ahora
+                mismo en Global.
+              </p>
+            </div>
+            <div class="contenedorl lista-6">
+              <div></div>
+              <button
+                class="play Playlist"
+                data-uri="spotify:playlist:37i9dQZEVXbJajpaXyaKll"
+              ></button>
+              <p>
+                Tu actualización diaria de<br />las canciones más virales ahora
+                mismo en Argentina.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="populares">
+          <h2>Y si cerramos los ojos?</h2>
+          <h4><span>Mostrar todo</span></h4>
+          <div class="organizar">
+            <div class="contenedorp ojos-1">
+              <div></div>
+              <button
+                class="play Playlist"
+                data-uri="spotify:playlist:37i9dQZF1DZ06evO0VPgnT"
+              ></button>
+              <p>Ruido blanco para ayudarte a dormir</p>
+            </div>
+            <div class="contenedorp ojos-2">
+              <div></div>
+              <button
+                class="play Playlist"
+                data-uri="spotify:playlist:37i9dQZF1DZ06evO0VPgnT"
+              ></button>
+              <p>Hora de dormir</p>
+            </div>
+            <div class="contenedorp ojos-3">
+              <div></div>
+              <button
+                class="play Playlist"
+                data-uri="spotify:playlist:37i9dQZF1DZ06evO0VPgnT"
+              ></button>
+              <p>No dejes que las malas vibras se apoderen de tu mente</p>
+            </div>
+            <div class="contenedorp ojos-4">
+              <div></div>
+              <button
+                class="play Playlist"
+                data-uri="spotify:playlist:37i9dQZF1DZ06evO0VPgnT"
+              ></button>
+              <p>Música ambiental para un sueño profundo</p>
+            </div>
+            <div class="contenedorp ojos-5">
+              <div></div>
+              <button
+                class="play Playlist"
+                data-uri="spotify:playlist:37i9dQZF1DZ06evO0VPgnT"
+              ></button>
+              <p>Sonidos de lluvia para descansar y dormir</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="final">
+          <div>
+            <h3>Compañia</h3>
+            <ul>
+              <li>Acerca de</li>
+              <li>Empleo</li>
+              <li>For the Record</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Comunidades</h3>
+            <ul>
+              <li>Para artistas</li>
+              <li>Desarrolladores</li>
+              <li>Publicidad</li>
+              <li>Inversionistas</li>
+              <li>Proveedores</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Enlaces útiles</h3>
+            <ul>
+              <li>Ayuda</li>
+              <li>App móvil gratis</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Planes de Spotify</h3>
+            <ul>
+              <li>Premium Individual</li>
+              <li>Premium Duo</li>
+              <li>Premium Familiar</li>
+              <li>Premium para Estudiantes</li>
+              <li>Versión gratuita</li>
+            </ul>
+          </div>
+          <div class="redes">
+            <button class="instagram"></button>
+            <button class="twitter"></button>
+            <button class="facebook"></button>
+          </div>
+        </div>
+        <div class="copy">
+          <hr />
+          <button class="registrate" id="authorizeButton">
+            Autorizar con Spotify
+          </button>
+          <p>&copy;2025 Spotify AB</p>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <div>
+        <h3>Muestra de Spotify</h3>
+        <p>
+          Registrate para acceder a canciones y podcasts ilimitados con algunos
+          anuncios. No necesitas tarjeta de crédito
+        </p>
+      </div>
+      <button class="registrate">Registrate gratis</button>
+    </footer>
+    <script src="index.js"></script>
+  </body>
+</html>
